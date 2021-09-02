@@ -1,0 +1,8 @@
+[
+  "test_inputs_page.py::test_inputs_page",
+  "test_my_pet.py::Test_My_Pet::test_my_pet_negative",
+  "test_my_pet.py::Test_My_Pet::test_my_pet_positive",
+  "test_my_pet.py::test_my_pet_negative",
+  "test_my_pet.py::test_my_pet_positive",
+  "test_side_menu.py::test_side_menu"
+]
