@@ -1,10 +1,8 @@
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
-from functions import login
-from functions import element_is_present
+from functions import login, element_is_present
 
-
-class Test_My_Pet():
+class TestMyPet:
 
     def test_my_pet_positive(self):
         with Chrome() as browser:

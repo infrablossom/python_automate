@@ -6,7 +6,7 @@ def test_side_menu():
     with Chrome() as browser:
         browser.get('https://qastand.valhalla.pw/')
         browser.maximize_window()
-        login_button = browser.find_element_by_xpath('//*[contains(text(), "Вход")]')
+        login_button = browser.find_element_by_xpath('//*[@id = "login"]')
         login_button.click()
         login(browser)
         expected_names = ['Поля ввода и кнопки', 'Мой питомец', 'О себе',
