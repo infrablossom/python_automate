@@ -7,11 +7,12 @@ from selenium.webdriver import Chrome
 
 
 def login(browser):
-    email = browser.find_element(By.NAME, "email")
+
+    email = wait_until_clickable(browser, By.NAME, "email")
     email.send_keys("qa_test@test.ru")
-    password = browser.find_element(By.NAME, "password")
+    password = wait_until_clickable(browser, By.NAME, "password")
     password.send_keys("!QAZ2wsx")
-    browser.find_element(By.CLASS_NAME, "button").click()
+    wait_until_clickable(browser, By.CLASS_NAME, "button").click()
 
 def wait_until_clickable(driver: Chrome, by: By, value: str, timeout: int = 5) -> WebElement:
    return WebDriverWait(driver, timeout).until(ec.element_to_be_clickable((by, value)))
@@ -24,7 +25,7 @@ def wait_until_visible(browser, locator, timeout=10):
 
 def element_is_present(browser: Chrome, by: By, value: str, timeout=10) -> bool:
    try:
-       wait_until_visible(browser, (by, value), timeout)
+       wait_until_clickable(browser, by, value, timeout)
        return True
    except TimeoutException:
        return False
