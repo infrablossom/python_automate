@@ -8,3 +8,6 @@ def test_timer_page():
         browser.maximize_window()
         login(browser)
         wait.until(ec.text_to_be_present_in_element((By.XPATH, '//*[@id="demo"]'), '100'))
+        button = wait_until_clickable(browser, By.XPATH, '//*[@onclick="check_value()"]')
+        button.click()
+        success_alert_is_present(browser)
