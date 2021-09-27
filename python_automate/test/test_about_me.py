@@ -1,16 +1,12 @@
-from selenium.webdriver import Chrome
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from functions import login
-from functions import element_is_present
+from functions import *
 
 
 def test_about_me():
     with Chrome() as browser:
+        cookie_login(browser)
         browser.get('https://qastand.valhalla.pw/about')
-        browser.maximize_window()
-        login(browser)
         name = browser.find_element_by_xpath('//*[@name="name"]')
         surname = browser.find_element_by_xpath('//*[@name="surname"]')
         name.send_keys('Tanya')
@@ -29,6 +25,5 @@ def test_about_me():
         select.select_by_visible_text('Junior')
 
         name.send_keys(Keys.ENTER)
-        assert element_is_present(browser, By.XPATH, '//*[@class="notification is-success"]'), \
+        assert element_is_present(browser, (By.XPATH, '//*[@class="notification is-success"]')), \
             "Сообщение об успехе отсутствует"
-
